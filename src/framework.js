@@ -2,8 +2,9 @@ var contactSearchCallback;
 
 window.Framework = {
     config: {
-        name:"ExampleGitHubApp",
+        name:"tsangildev",
         clientIds: {
+            'usw2.pure.cloud': 'fda6b5d8-92ed-4087-9ac2-29a6f7b548aa',
             'mypurecloud.com': '',
             'mypurecloud.ie': '',
             'mypurecloud.com.au': '',
@@ -13,13 +14,17 @@ window.Framework = {
         customInteractionAttributes: ['PT_URLPop', 'PT_SearchValue', 'PT_TransferContext'],
         settings: {
             embedWebRTCByDefault: true,
+            embeddedInteractionWindow: true,
             hideWebRTCPopUpOption: false,
             enableCallLogs: true,
             enableTransferContext: true,
+            dedicatedLoginWindow: false,
+            embeddedInteractionWindow: true,
             hideCallLogSubject: true,
             hideCallLogContact: false,
             hideCallLogRelation: false,
-            searchTargets: ['people', 'queues', 'frameworkcontacts'],
+            searchTargets: ['people', 'queues', 'frameworkcontacts', "externalContacts"],
+            callControls: ["pickup", "transfer", "mute", "disconnect", "requestAfterCallWork"],
             theme: {
                 primary: '#d4cebd',
                 text: '#123'
