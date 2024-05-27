@@ -14,19 +14,19 @@ window.Framework = {
         customInteractionAttributes: ['PT_URLPop', 'PT_SearchValue', 'PT_TransferContext'],
         settings: {
             embedWebRTCByDefault: true,
-            embeddedInteractionWindow: true,
             hideWebRTCPopUpOption: false,
             enableCallLogs: true,
             enableTransferContext: true,
-            dedicatedLoginWindow: false,
+            dedicatedLoginWindow: true,
             embeddedInteractionWindow: true,
             hideCallLogSubject: true,
             hideCallLogContact: false,
             hideCallLogRelation: false,
+            enableCallHistory: true,
             searchTargets: ['people', 'queues', 'frameworkcontacts', "externalContacts"],
             callControls: ["pickup", "transfer", "mute", "disconnect", "requestAfterCallWork"],
             theme: {
-                primary: '#d4cebd',
+                primary: '#fc4100',
                 text: '#123'
             }
         }
