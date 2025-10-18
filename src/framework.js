@@ -4,9 +4,9 @@ var callLogCallbacks = {};
 if (typeof window !== 'undefined') {
     window.Framework = {
         config: {
-            name: "tsangildev",
+            name: "FRAMEWORK_NAME",
             clientIds: {
-                'usw2.pure.cloud': 'fda6b5d8-92ed-4087-9ac2-29a6f7b548aa',
+                'usw2.pure.cloud': 'CLIENT_ID',
                 'mypurecloud.com': '',
                 'mypurecloud.ie': '',
                 'mypurecloud.com.au': '',
