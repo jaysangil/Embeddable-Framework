@@ -1,5 +1,8 @@
+<!DOCTYPE html>
+<html>
 <head>
-    <script src="framework.js"></script>
+    <meta charset="UTF-8">
+    <title>PureCloud Embeddable Framework Example</title>
     <link type="text/css" rel="stylesheet" href="/css/example.css">
 </head>
 <body>
@@ -7,14 +10,13 @@
         <iframe id="softphone" allow="camera *; microphone *" src="https://apps.usw2.pure.cloud/crm/embeddableFramework.html?dedicatedLoginWindow=true"></iframe>
     </div>
     <div class="interaction">
-        <iframe id="Chat window" style="width: 1000px;height: 500px;border: none;" iframe allow="camera *; microphone *; autoplay *" src=https://apps.usw2.pure.cloud/crm/interaction.html></iframe>
+        <iframe id="Chat window" style="width: 1000px;height: 500px;border: none;" allow="camera *; microphone *; autoplay *" src="https://apps.usw2.pure.cloud/crm/interaction.html"></iframe>
     </div>
 
     <!-- WEM Activity Widget Integration-->
     <div class="wem-activity">
         <iframe id="wemActivity" style="width: 100%; height: 600px; border: none;" src="https://apps.usw2.pure.cloud/crm/embeddablePane.html?component=wemActivity"></iframe>
     </div>
-
 
     <div class='content'>
         <h1>PureCloud Embeddable Framework Example</h1>
@@ -24,21 +26,22 @@
 
             <div class="action">
                 <h4 class="actionName">Click-to-Dial</h4>
-                <p>You can raise events from the main application to automatically place a call using the embedded client. <a id='clickToDial' >3172222222</a> </p>
+                <p>You can raise events from the main application to automatically place a call using the embedded client. <a id='clickToDial' style="cursor: pointer; color: #fc4100; text-decoration: underline;">3172222222</a> </p>
             </div>
 
             <div class="action">
                 <h4 class="actionName">Add Associations</h4>
                 <p>addAssociation allows you to update options for Name or Related To fields in the Interaction Log view. The selected option is sent to the embeddable framework when processCallLog is raised.</p>
                 <textarea id="associationPayload" rows="4">{"type":"contact", "id":"1234", "text":"Weather Line", "select": true}</textarea>
-                <button id="addAssociation" >Send Data</button>
+                <button id="addAssociation">Send Data</button>
             </div>
 
             <div class="action">
                 <h4 class="actionName">Add Custom Attributes</h4>
-                <p>Interaction.addCustomAttributes allows you to add additional information to interactions and sync these attributes to call logs associated with these interactions. An example use case is to save the current state of an agent's workspace and transfer the workspace to a new agent.</p>
-                <textarea id="attributePayload" rows="4">{"interactionId":"1234-1234-1234-1234","attributes": {"exampleWorkspaceKey": "https://exampleworkspaceurl.com"}</textarea>
+                <p>Interaction.addCustomAttributes allows you to add additional information to interactions and sync these attributes to call logs associated with these interactions. IMPORTANT: You must have an active interaction first! Get the interactionId from the "Type: Interaction" subscription below.</p>
+                <textarea id="attributePayload" rows="4">{"interactionId":"REPLACE_WITH_REAL_ID","attributes": {"PT_URLPop": "https://example.com", "PT_SearchValue": "12345", "PT_TransferContext": "Case ABC"}}</textarea>
                 <button id="addAttribute">Send Data</button>
+                <p style="color: #fc4100; font-size: 12px; margin-top: 5px;">⚠️ Replace interactionId with actual ID from an active call before clicking Send Data</p>
             </div>
 
             <div class="action">
@@ -59,9 +62,11 @@
                 <p>User.updateStatus allows status management between PureCloud and third-party systems.</p>
                 <select id='statusDropDown'>
                     <option value="AVAILABLE">Available</option>
+                    <option value="MEAL">Meal</option>
+                    <option value="Meeting">Meeting</option>
                     <option value="AWAY">Away</option>
                     <option value="ON_QUEUE">On Queue</option>
-                  </select>
+                </select>
                 <button id="updateUserStatus">Send Data</button>
             </div>
             
@@ -75,24 +80,24 @@
                 <h4 class="actionName">Set Audio Configuration for User Notifications</h4>
                 <p>User.Notification.setAudioConfiguration allows granular control over which interaction types play an audible alert when the interaction is alerting.</p>
                 <span>
-                        <input type="checkbox" id="audio-call" value="call" checked>Call
+                    <input type="checkbox" id="audio-call" value="call" checked>Call
                 </span>
                 <span>
-                        <input type="checkbox" id="audio-email" value="email" checked>Email
+                    <input type="checkbox" id="audio-email" value="email" checked>Email
                 </span>
                 <span>
-                        <input type="checkbox" id="audio-callback" value="callback" checked>Callback
+                    <input type="checkbox" id="audio-callback" value="callback" checked>Callback
                 </span>
                 <span>
-                        <input type="checkbox" id="audio-chat" value="chat" checked>Chat
+                    <input type="checkbox" id="audio-chat" value="chat" checked>Chat
                 </span>
                 <span>
-                        <input type="checkbox" id="audio-message" value="message" checked>Message
+                    <input type="checkbox" id="audio-message" value="message" checked>Message
                 </span>
                 <span>
                     <input type="checkbox" id="audio-voicemail" value="voicemail" checked>Voicemail
                 </span>
-                </br>
+                <br>
                 <button id="updateAudioConfiguration">Save</button>
             </div>
 
@@ -114,16 +119,15 @@
                     <option value="INFO">Info</option>
                     <option value="SUCCESS">Success</option>
                     <option value="WARNING">Warning</option>
-                    <option value="ERROR" selected=true>Error</option>
-                  </select>
-
-                  <select id='notificationTimeout'>
-                      <option value ="0" selected=true>No Timeout</option>
-                      <option value ="5000">5 seconds</option>
-                      <option value ="10000">10 seconds</option>
-                      <option value ="15000">15 seconds</option>
-                      <option value ="20000">20 seconds</option>
-                  </select>
+                    <option value="ERROR" selected>Error</option>
+                </select>
+                <select id='notificationTimeout'>
+                    <option value="0" selected>No Timeout</option>
+                    <option value="5000">5 seconds</option>
+                    <option value="10000">10 seconds</option>
+                    <option value="15000">15 seconds</option>
+                    <option value="20000">20 seconds</option>
+                </select>
                 <button id="sendCustomNotification">Send Data</button>
             </div>
         </div>
@@ -132,22 +136,22 @@
             <h3>Events</h3>
 
             <div class="event">
-                    <h4 class="eventName">Screen Pop</h4>
-                    <p>screenPop is raised for inbound alerting interactions.</p>
-                    <textarea id="screenPopPayload" rows="5"></textarea>        
+                <h4 class="eventName">Screen Pop</h4>
+                <p>screenPop is raised for inbound alerting interactions.</p>
+                <textarea id="screenPopPayload" rows="5"></textarea>        
             </div>
 
             <div class="event">
-                    <h4 class="eventName">Process Call Log</h4>
-                    <p>processCallLog is raised for interactions when the interaction state is updated and there are pending changes to the Interaction Log view in the embedded client.</p>
-                    <textarea id="processCallLogPayLoad" rows="5"></textarea>
+                <h4 class="eventName">Process Call Log</h4>
+                <p>processCallLog is raised for interactions when the interaction state is updated and there are pending changes to the Interaction Log view in the embedded client.</p>
+                <textarea id="processCallLogPayLoad" rows="5"></textarea>
             </div>
 
             <div class="event">
                 <h4 class="eventName">Open Call Log</h4>
                 <p>openCallLog is raised when the user clicks the arrow on the Interaction Log view in the embedded client.</p>
                 <textarea id="openCallLogPayLoad" rows="5"></textarea>
-        </div>
+            </div>
         </div>
 
         <div class="subscriptions">
@@ -164,12 +168,16 @@
                 <p>Subscribing to UserAction events allows you to align the agent's interface outside of the embeddable framework with their current task.</p>
                 <textarea id="userActionSubscriptionPayload" rows="5"></textarea>        
             </div>
+            
             <div class="subscription">
                 <h4 class="subscriptionName">Type: Notification</h4>
                 <p>Subscribing to Notification events allows contextual information such as when an interaction selection changed.</p>
                 <textarea id="notificationSubscriptionPayload" rows="5"></textarea>        
             </div>
         </div>
-
     </div>
+
+    <!-- Load example.js from scripts folder -->
+    <script src="/scripts/example.js"></script>
 </body>
+</html>

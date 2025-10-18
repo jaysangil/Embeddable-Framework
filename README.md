@@ -4,7 +4,7 @@ This repository contains a basic setup for a PureCloud Embeddable Framework exam
 
 ![PureCloud Embeddable Framework example page](img/screenshot.png)
 
-# Table of Contents
+## Table of Contents
 
 * [Getting Started](#getting-started)
   * [TL;DR](#tldr)
@@ -14,7 +14,7 @@ This repository contains a basic setup for a PureCloud Embeddable Framework exam
   * [Usage](#usage)
 * [Additional Information](#additional-information)
 
-# Getting Started
+## Getting Started
 
 ## TL;DR
 
@@ -28,10 +28,10 @@ You can now interact with the PureCloud Embeddable Framework APIs in real-time.
 
 ## Prerequisites
 
- * Git installed on your computer.
- * Node.js (with npm) installed on your computer.
- * PureCloud credentials.
- * A PureCloud OAuth client with the **Token Implicit Grant (Browser)** grant type selected.<br />
+* Git installed on your computer.
+* Node.js (with npm) installed on your computer.
+* PureCloud credentials.
+* A PureCloud OAuth client with the **Token Implicit Grant (Browser)** grant type selected.<br />
    For more information, see [Create an OAuth client (Resource Center)](https://help.mypurecloud.com/?p=188023).
 
 ## Installation
@@ -64,12 +64,12 @@ You can now interact with the PureCloud Embeddable Framework APIs in real-time.
       a. Open a **Terminal** window.<br />
       b. Type `cd {name of your PureCloud Embeddable Framework project}`.<br />
       c. Type `sudo node server.js`.
-2. In your browser, go to https://localhost/example.html.
+2. In your browser, go to <https://localhost/example.html>.
 3. Log in to the client.
 
 You can now interact with the example page and explore the PureCloud Embeddable Framework APIs in real-time. For example, to see how click-to-dial works, click the click-to-dial link on the example page.
 
-# Additional Information
+## Additional Information
 
 This content is [licensed](/LICENSE) under the MIT license.
 
