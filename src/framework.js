@@ -41,12 +41,9 @@ if (typeof window !== 'undefined') {
                         ],
                         call: [
                             "participant.name",
-                            "participant.ani",
-                            "participant.dnis",
                             "framework.CallTimeElapsed",
                             "call.State",
-                            "call.ConversationId",
-                            "call.Held"
+                            "call.ConversationId"                          
                         ]
                     }
                 }
